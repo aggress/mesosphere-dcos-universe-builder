@@ -13,7 +13,7 @@ for dirpath, dirs, files in os.walk("/universe-builder/universe/repo/packages"):
             options.append(str("<option value=\"" + package + "\">" + package + "</option>"))
             options.sort()
 
-template = open('/universe-builder/web/template/index.html', 'w')
+template = open('/universe-builder/web/templates/index.html', 'w')
 template.write("{% extends \"base.html\" %}\n")
 template.write("{% block content %}\n")
 
