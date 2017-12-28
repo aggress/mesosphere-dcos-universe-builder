@@ -21,21 +21,22 @@ set -o pipefail
 
 ## Variables 
 
+__base_path="/universe-builder"
 __build_path="universe/docker/local-universe"
 
 function __make-base () {
-  cd /tmp/
+  cd ${__base_path}
   git clone https://github.com/mesosphere/universe.git --branch version-3.x && \
   cd ${__build_path}
   make base
 }
 
 function __build-list () {
-  python builder-list.py
+  python ${__base_path}/bin/builder-list.py
 }
 
 function __run-flask () {
-  export FLASK_APP=builder-web.py
+  export FLASK_APP=${__base_path}/web/builder-web.py
   flask run
 }
 
