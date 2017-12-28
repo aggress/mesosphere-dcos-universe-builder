@@ -14,11 +14,11 @@ for dirpath, dirs, files in os.walk("/universe-builder/universe/repo/packages"):
             options.sort()
 
 template = open('/universe-builder/web/templates/index.html', 'w')
-template.write("{% extends \"base.html\" %}\n")
-template.write("{% block content %}\n")
+template.write("\t\t\t\t\t{% extends \"base.html\" %}\n")
+template.write("\t\t\t\t\t{% block content %}\n")
 
 for item in options:
-    template.write("%s\n" % item)
+    template.write("\t\t\t\t\t" + item + "\n")
 
 template.write("{% endblock %}\n")
 template.close()
