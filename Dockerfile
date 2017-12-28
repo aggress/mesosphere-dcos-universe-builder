@@ -1,15 +1,15 @@
 FROM alpine:latest
 
-MAINTAINER Richard Shaw <rshaw@mesosphere.com>
+MAINTAINER Richard Shaw <richard@aggress.net>
 
 RUN apk -U add alpine-sdk python3 bash docker py-pip
 
 RUN pip install flask
 
-RUN mkdir /universe-builder
+RUN mkdir -p /universe-builder
 
-COPY ./bin /universe-buikder
+COPY ./bin /universe-builder/bin
 
-COPY ./web /universe-builder
+COPY ./web /universe-builder/web
 
 CMD ["/universe-builder/bin/run.sh main"]
