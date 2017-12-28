@@ -48,8 +48,7 @@
 				<div class="control-group">
 					<label for="select-package">Packages:</label>
 					<select id="select-package" name="package[]" multiple class="demo-default" style="width:50%" placeholder="Select a package...">
-						<!--Insert here-->
-						<option value="alluxio-enterprise:1.0.0-1.4.0">alluxio-enterprise:1.0.0-1.4.0</option>
+						{% block content %}{% endblock %}
 					</select>
 				</div>
 				<script>
@@ -58,7 +57,6 @@
 				});
 				</script>
 			</div>
-
 		</div>
 	</body>
 </html>

@@ -2,7 +2,6 @@
 
 import json
 import os
-import fileinput
 
 options = ["<!--Generated list of options-->"]
 for dirpath, dirs, files in os.walk("/universe-builder/universe/repo/packages"):
@@ -14,8 +13,12 @@ for dirpath, dirs, files in os.walk("/universe-builder/universe/repo/packages"):
             options.append(str("<option value=\"" + package + "\">" + package + "</option>"))
             options.sort()
 
+template = open('/universe-builder/web/template/index.html', 'w')
+template.write("{% extends \"base.html\" %}\n")
+template.write("{% block content %}\n")
 
-for line in fileinput.input('/universe-builder/web/static/index.html', inplace=1):
-    print line,
-    if line.startswith('<!--Insert here-->'):
-        for line in options: print line
+for item in options:
+    template.write("%s\n" % item)
+
+template.write("{% endblock %}\n")
+template.close()

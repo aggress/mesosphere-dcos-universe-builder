@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request
 import subprocess
 
 app = Flask(__name__, static_url_path='')
@@ -6,7 +6,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def root():
-    return render_template('index.html')
+    return app.send_static_file('index.html')
 
 
 @app.route('/build')
@@ -16,4 +16,4 @@ def build():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
