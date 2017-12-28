@@ -12,4 +12,8 @@ COPY ./bin /universe-builder/bin
 
 COPY ./web /universe-builder/web
 
-CMD ["/universe-builder/bin/run.sh main"]
+EXPOSE 5000/tcp
+
+WORKDIR /
+
+CMD ["/universe-builder/bin/run.sh", "main"]
