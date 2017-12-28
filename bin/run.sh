@@ -37,7 +37,7 @@ function __build-list () {
 
 function __run-flask () {
   export FLASK_APP=${__base_path}/web/builder-web.py
-  flask run
+  flask run --host=0.0.0.0
 }
 
 function __make-universe () {
