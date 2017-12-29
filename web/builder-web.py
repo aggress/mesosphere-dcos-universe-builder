@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template
 import subprocess
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__,
+            static_url_path='',
+            static_folder='static')
 
 
 @app.route('/')

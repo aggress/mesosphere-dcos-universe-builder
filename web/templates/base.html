@@ -6,21 +6,19 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Selectize.js Demo</title>
+		<title>DC/OS Local Universe Builder</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/stylesheet.css">
 		<!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
-		<script src="js/selectize.js"></script>
-		<script src="js/index.js"></script>
+		<script src="js/selectize.min.js"></script>
+		<!--<script src="../static/js/index.js"></script>-->
 	</head>
     <body>
-		<div id="wrapper">
 			<h1>DC/OS Local Universe Builder</h1>
 
-			<div class="demo">
 				<div class="control-group">
 					<label for="select-version">DC/OS Version:</label>
 					<select id="select-version" class="demo-default" style="width:10%" placeholder="Select a version...">
@@ -41,10 +39,8 @@
 					dropdownParent: 'body'
 				});
 				</script>
-			</div>
 
 
-			<div class="demo">
 				<div class="control-group">
 					<label for="select-package">Packages:</label>
 					<select id="select-package" name="package[]" multiple class="demo-default" style="width:50%" placeholder="Select a package...">
@@ -56,7 +52,5 @@
 					delimiter: ','
 				});
 				</script>
-			</div>
-		</div>
 	</body>
 </html>
