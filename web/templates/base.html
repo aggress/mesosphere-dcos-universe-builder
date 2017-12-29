@@ -11,17 +11,20 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="stylesheet" href="css/selectize.default.css">
 		<!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/selectize.min.js"></script>
 		<!--<script src="../static/js/index.js"></script>-->
 	</head>
     <body>
-			<h1>DC/OS Local Universe Builder</h1>
-
+			<div id="wrapper">
+				<h1>DC/OS Local Universe Builder</h1>
+				<br>
+				<br>
 				<div class="control-group">
 					<label for="select-version">DC/OS Version:</label>
-					<select id="select-version" class="demo-default" style="width:10%" placeholder="Select a version...">
+					<select id="select-version" class="demo-default" style="width:170px" placeholder="Select a version...">
 						<option value="">Select a version...</option>
 						<option value="1.8">1.8</option>
 						<option value="1.9">1.9</option>
@@ -52,5 +55,6 @@
 					delimiter: ','
 				});
 				</script>
+			</div>
 	</body>
 </html>
