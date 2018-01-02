@@ -18,13 +18,14 @@
 		<!--<script src="../static/js/index.js"></script>-->
 	</head>
     <body>
+    	<form id="testform" method="POST" action=".">
 			<div id="wrapper">
 				<h1>DC/OS Local Universe Builder</h1>
 				<br>
 				<br>
 				<div class="control-group">
 					<label for="select-version">DC/OS Version:</label>
-					<select id="select-version" class="demo-default" style="width:170px" placeholder="Select a version...">
+					<select id="select-version" name="version"class="demo-default" style="width:170px" placeholder="Select a version...">
 						<option value="">Select a version...</option>
 						<option value="1.8">1.8</option>
 						<option value="1.9">1.9</option>
@@ -56,5 +57,7 @@
 				});
 				</script>
 			</div>
+			<input type="submit" class="large button" name="my-form" value="GO">
+		</form>
 	</body>
 </html>

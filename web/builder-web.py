@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import subprocess
+import sys
 
 app = Flask(__name__,
             static_url_path='',
@@ -9,6 +10,12 @@ app = Flask(__name__,
 @app.route('/')
 def root():
     return render_template('index.html')
+
+
+@app.route('/', methods=['POST'])
+def result():
+    result = request.form
+    return render_template("result.html", result=result)
 
 
 @app.route('/build')
