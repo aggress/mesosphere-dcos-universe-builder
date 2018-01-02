@@ -1,3 +1,4 @@
+from __future__ import print_function
 from flask import Flask, request, render_template
 import subprocess
 import sys
@@ -14,7 +15,13 @@ def root():
 
 @app.route('/', methods=['POST'])
 def result():
+    packages = ""
     result = request.form
+    for i in result.getlist('package'):
+        print(str(i), file=sys.stderr)
+        packages = packages + i + ','
+    packages = packages[:-1]
+    print(packages, file=sys.stderr)
     return render_template("result.html", result=result)
 
 
