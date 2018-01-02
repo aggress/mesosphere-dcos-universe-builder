@@ -37,15 +37,15 @@ function __build-list () {
 
 function __run-flask () {
   export FLASK_APP=${__base_path}/web/builder-web.py
-  flask run --host=0.0.0.0
+  flask run --host=0.0.0.0 --port=5001
 }
 
 function __make-universe () {
-  cd /tmp/${__build_path}
+  cd ${__base_path}/${__build_path}
   make DCOS_VERSION=${DCOS_VER} DCOS_PACKAGE_INCLUDE=${PACKAGES} local-universe
-  cp /tmp/${__build_path}/local-universe.tar.gz /tmp/build/
-  cp /tmp/${__build_path}/dcos-local-universe-registry.service /tmp/build/
-  cp /tmp/${__build_path}/dcos-local-universe-http.service /tmp/build/
+  ln -s ${__base_path}/${__build_path}/local-universe.tar.gz ${__base_path}/web/static/
+  ln -s ${__base_path}/${__build_path}/dcos-local-universe-registry.service ${__base_path}/web/static/
+  ln -s ${__base_path}/${__build_path}/dcos-local-universe-http.service ${__base_path}/web/static/
 }
 
 function __main () {

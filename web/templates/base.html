@@ -25,8 +25,7 @@
 				<br>
 				<div class="control-group">
 					<label for="select-version">DC/OS Version:</label>
-					<select id="select-version" name="version"class="demo-default" style="width:170px" placeholder="Select a version...">
-						<option value="">Select a version...</option>
+					<select id="select-version" name="version"class="demo-default" style="width:80px" placeholder="Select a version...">
 						<option value="1.8">1.8</option>
 						<option value="1.9">1.9</option>
 						<option value="1.10">1.10</option>
@@ -47,7 +46,7 @@
 
 				<div class="control-group">
 					<label for="select-package">Packages:</label>
-					<select id="select-package" name="package" multiple class="demo-default" style="width:50%" placeholder="Select a package...">
+					<select id="select-package" name="package" multiple class="demo-default" style="width:75%" placeholder="Select a package...">
 						{% block content %}{% endblock %}
 					</select>
 				</div>
@@ -57,7 +56,9 @@
 				});
 				</script>
 			</div>
-			<input type="submit" class="large button" name="my-form" value="GO">
+			<div id="wrapper">
+				<input type="submit" class="button" name="my-form" value="Build">
+			</div>
 		</form>
 	</body>
 </html>

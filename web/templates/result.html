@@ -1,28 +1,28 @@
-<!doctype html>
-<html>
-   <body>
-   
-      <table border = 1>
-         {% for key, value in result.iteritems() %}
-         
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-            
-         {% endfor %}
-      </table>
-
-      <table border = 1>
-         {% for key, value in result.items() %}
-         
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-            
-         {% endfor %}
-      </table>
-      
-   </body>
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>DC/OS Local Universe Builder</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="stylesheet" href="css/selectize.default.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>DC/OS Local Universe Builder</h1>
+			<br>
+			<div class="control-group">
+        		<br>
+        		<a href="/local-universe.tar.gz">local-universe.tar.gz</a><br>
+        		<a href="/dcos-local-universe-registry.service">dcos-local-universe-registry.service</a><br>
+        		<a href="/dcos-local-universe-http.service">dcos-local-universe-http.service</a><br>
+        	</div>
+        </div>
+    </body>
 </html>
