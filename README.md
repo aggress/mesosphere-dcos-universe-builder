@@ -1,5 +1,7 @@
 # mesosphere-dcos-universe-builder
 
+![Screenshot](https://raw.github.com/ryanmaxwell/iArrived/master/Screenshots/Settings.png)
+
 
 ## Overview
 
@@ -20,14 +22,22 @@ Please note: This does not utilise Docker in Docker (dind), it connects to your 
 1. `$ git clone git@github.com:aggress/mesosphere-dcos-universe-builder.git`
 1. `$ cd mesosphere-dcos-universe-builder`
 1. Run the Docker container `$ scripts/run.sh`
-1. Open http://127.0.0.1:5001 in your web browser
+1. Open `http://127.0.0.1:5001` in your web browser
 1. Select the DC/OS version and packages you wish to add and build
 1. Click on `BUILD`, note build time will vary depending on the number of packages
-1. Download the local-universe.tgz and other assets, scp to your DC/OS masters' /tmp dir
+1. Download the local-universe.tgz and other assets
+1. Either click `SHUTDOWN` or run `$ docker kill /builder`
+1. scp to your DC/OS masters' /tmp dir
 1. Publish to your target DC/OS cluster. I use a simple [Ansible playbook](https://github.com/aggress/mesosphere-dcos-toolbox/blob/master/ansible/playbooks/deploy-local-universe-from-masters.yaml). See Publishing.
 
 
 ## Design
+
+The goal was to provide a nice usable UI for selecting packages, build the local-universe, then a simple Ansible playbook to pubish, thereby removing many many manual steps.
+
+The UI's based around [https://selectize.github.io/selectize.js/](selectize.js) which provides a rich drop down box for choosing packages, this is populated from the Universe itself so is always up to date.
+
+Typing the first few characters of a package name returns a subset of the entire Universe list, allowing you to search for packages easily. It's best used if you type the name then the first number of the version, like `spark:2` as that'll return the latest versions. 
 
 ### Components
 
@@ -48,9 +58,9 @@ Please note: This does not utilise Docker in Docker (dind), it connects to your 
 3. From the universe repository make a list of every package
 4. Inject it into the selectize drop down box
 5. Flask runs `builder-web.py`
-6. index.html rendered from base.html template and published on `1`27.0.0.1:5001`
+6. index.html rendered from base.html template and published on `127.0.0.1:5001`
 7. `selectize.js` makes the package selection shiny
-8. Build button POSTs back to `b`uilder-web.py` `/
+8. Build button POSTs back to `builder-web.py /`
 9. Extracts the packages from the MultiDict into a comma separate string
 10. Calls `run.sh make-universe` to build the local universe
 11. Outputs assests including `local-universe.tgz`
