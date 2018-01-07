@@ -1,7 +1,5 @@
 # mesosphere-dcos-universe-builder
 
-![screenshot](https://raw.githubusercontent.com/aggress/mesosphere-dcos-universe-builder/master/web/static/images/screenshot.png)
-
 ## Overview
 
 This is a [DC/OS Community](https://dcos.io/community/) project and is not supported or warrantied by Mesosphere.
@@ -11,6 +9,8 @@ A Docker based build environment and UI for building a [DC/OS local universe](ht
 Designed to be run (for now) outside of DC/OS.
 
 Please note: This does not utilise Docker in Docker (dind), it connects to your host's Docker daemon using the sock file. If you have an existing Docker container running or registered called `registry`, it will remove it. If you intend to run this on a jump host or bootstrap server with an existing Docker registry, please check its name.
+
+![screenshot](https://raw.githubusercontent.com/aggress/mesosphere-dcos-universe-builder/master/web/static/images/screenshot.png)
 
 
 ## Usage
