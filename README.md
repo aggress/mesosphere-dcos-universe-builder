@@ -1,7 +1,6 @@
 # mesosphere-dcos-universe-builder
 
-![Screenshot](https://raw.github.com/ryanmaxwell/iArrived/master/Screenshots/Settings.png)
-
+![screenshot](https://raw.githubusercontent.com/aggress/mesosphere-dcos-universe-builder/master/web/static/images/screenshot.png)
 
 ## Overview
 
