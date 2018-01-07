@@ -4,6 +4,8 @@
 
 ## Overview
 
+This is a DC/OS Community project and is not supported or warrantied by Mesosphere.
+
 A Docker based build environment and UI for building a [DC/OS local universe](https://docs.mesosphere.com/1.10/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-selected-packages).
 
 Designed to be run (for now) outside of DC/OS.
