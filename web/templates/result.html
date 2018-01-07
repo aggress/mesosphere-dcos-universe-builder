@@ -11,18 +11,30 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/stylesheet.css">
-		<link rel="stylesheet" href="css/selectize.default.css">
+		<link rel="stylesheet" href="css/selectize.mesosphere.css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 	</head>
 	<body>
 		<div id="wrapper">
-			<h1>DC/OS Local Universe Builder</h1>
+			<object data="images/MESO_dcos_Horz_K-HJxjDevpnW.svg" width="300" height="33" type="image/svg+xml"></object>
+            <h1>Local Universe Builder</h1>
 			<br>
 			<div class="control-group">
         		<br>
-        		<a href="/local-universe.tar.gz">local-universe.tar.gz</a><br>
-        		<a href="/dcos-local-universe-registry.service">dcos-local-universe-registry.service</a><br>
-        		<a href="/dcos-local-universe-http.service">dcos-local-universe-http.service</a><br>
+                <br>
+                <p>Build complete.</p>
+                <p>Click on the links below to download the assets then publish to your DC/OS cluster.</p>
+                <p>
+                <br>
+        		<p><a href="/local-universe.tar.gz">local-universe.tar.gz</a></p>
+        		<p><a href="/dcos-local-universe-registry.service">dcos-local-universe-registry.service</a></p>
+        		<p><a href="/dcos-local-universe-http.service">dcos-local-universe-http.service</a></p>
+                <br>
+                <br>
         	</div>
+            <form id="testform" method="POST" action="/shutdown">
+                <input type="submit" id="button" class="btn" name="my-form" value="SHUTDOWN">
+            </form>
         </div>
     </body>
 </html>

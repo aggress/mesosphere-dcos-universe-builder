@@ -34,9 +34,9 @@ def result():
     return render_template("result.html", result=result)
 
 
-@app.route('/build')
+@app.route('/shutdown', methods=['POST'])
 def build():
-    subprocess.check_call('/bin/build.sh make-universe', shell=True)
+    subprocess.check_call('killall flask', shell=True)
     return "complete"
 
 

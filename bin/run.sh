@@ -52,14 +52,13 @@ function __main () {
   __make-base
   __build-list
   __run-flask
-  exit 1
 }
 
 case "$@" in
   make-base)     __make-base ;;
   main)          __main ;;
   build-list)    __build-list  ;;
-  flask)		 __run-flask ;;
+  flask)		     __run-flask ;;
   make-universe) __make-universe ;;
   *) exit 1 ;;
 esac

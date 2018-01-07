@@ -11,27 +11,39 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/stylesheet.css">
-		<link rel="stylesheet" href="css/selectize.default.css">
+		<link rel="stylesheet" href="css/selectize.mesosphere.css">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/selectize.min.js"></script>
-		<!--<script src="../static/js/index.js"></script>-->
 	</head>
     <body>
+
     	<form id="testform" method="POST" action=".">
 			<div id="wrapper">
-				<h1>DC/OS Local Universe Builder</h1>
+
+				<object data="images/MESO_dcos_Horz_K-HJxjDevpnW.svg" width="300" height="33" type="image/svg+xml"></object>
+				<h1>Local Universe Builder</h1>
 				<br>
 				<br>
+				<p>A UI for building a DC/OS local universe. Select your DC/OS version, followed by the packages
+				and build.</p>
+				<p>Search for a package by typing the first few letters of its name, the box will update automatically.</p>
+				<p>Use your up and down arrows to select the right package, then hit enter to confirm.</p>
+				<p>Amend selections using the backspace key, or click on a package then delete.</p>
+				<p>Build time will vary based on the number of packages and resources allocated by Docker.</p>
+				<br>
+
 				<div class="control-group">
-					<label for="select-version">DC/OS Version:</label>
-					<select id="select-version" name="version"class="demo-default" style="width:80px" placeholder="Select a version...">
+					<label for="select-version">DC/OS Version</label>
+					<select id="select-version" name="version"class="demo-default" required style="width:80px" placeholder="Select a version...">
 						<option value="1.8">1.8</option>
 						<option value="1.9">1.9</option>
 						<option value="1.10">1.10</option>
 						<option value="1.11">1.11</option>
 					</select>
 				</div>
+
 				<script>
 				$('#select-version').selectize({
 					create: true,
@@ -45,20 +57,26 @@
 
 
 				<div class="control-group">
-					<label for="select-package">Packages:</label>
-					<select id="select-package" name="package" multiple class="demo-default" style="width:75%" placeholder="Select a package...">
+					<label for="select-package">Packages</label>
+					<select id="select-package" name="package" multiple class="demo-default" required style="width:75%" placeholder="Select a package...">
 						{% block content %}{% endblock %}
 					</select>
 				</div>
+
 				<script>
 				$('#select-package').selectize({
-					delimiter: ','
+					delimiter: ',',
+					plugins: ['remove_button',]
 				});
 				</script>
+
 			</div>
-			<div id="wrapper">
-				<input type="submit" class="button" name="my-form" value="Build">
+
+			<div id="wrapper-two">
+				<input type="submit" id="button" class="btn" name="my-form" value="BUILD">
 			</div>
+
 		</form>
+
 	</body>
 </html>
