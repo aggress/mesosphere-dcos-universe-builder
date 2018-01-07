@@ -26,7 +26,7 @@ Please note: This does not utilise Docker in Docker (dind), it connects to your 
 1. Open `http://127.0.0.1:5001` in your web browser
 1. Select the DC/OS version and packages you wish to add and build
 1. Click on `BUILD`, note build time will vary depending on the number of packages
-1. Download the local-universe.tgz and other assets
+1. Download the presented `local-universe.tgz` which could be between 500MB-3GB, plus the systemctl service files
 1. Either click `SHUTDOWN` or run `$ docker kill /builder`
 1. scp to your DC/OS masters' /tmp dir
 1. Publish to your target DC/OS cluster. I use a simple [Ansible playbook](https://github.com/aggress/mesosphere-dcos-toolbox/blob/master/ansible/playbooks/deploy-local-universe-from-masters.yaml). See Publishing.
@@ -84,6 +84,7 @@ This automates the [steps documented here](https://docs.mesosphere.com/1.10/admi
 ## Todo
 
 1. Better validation on failure, if the build fails, you'll need to check the Docker stdout
-2. A css loader/spinner rather than relying on the browser waiting notification in the status bar
-3. Test running on DC/OS itself as a Marathon task
-4. Change /registry to something safer
+2. Change /registry to something safer
+3. A css loader/spinner rather than relying on the browser waiting notification in the status bar
+4. Test running on DC/OS itself as a Marathon task
+5. Replace run.sh with Python 
