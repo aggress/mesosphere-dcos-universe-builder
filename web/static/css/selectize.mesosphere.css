@@ -250,7 +250,7 @@
   overflow: hidden;
 }
 .selectize-dropdown [data-selectable] .highlight {
-  background: rgba(125, 168, 208, 0.2);
+  background: rgba(230, 223, 255, 0.8);
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   border-radius: 1px;
@@ -268,7 +268,7 @@
   cursor: default;
 }
 .selectize-dropdown .active {
-  background-color: #f5fafd;
+  background-color: #e6dfff;
   color: #495c68;
 }
 .selectize-dropdown .active.create {
