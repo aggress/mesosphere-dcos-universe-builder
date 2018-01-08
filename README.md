@@ -15,16 +15,20 @@ This is a [DC/OS Community](https://dcos.io/community/) project and is not suppo
 
 ## Usage
 
-**Use Cases**
+### Use Cases
 
 1. You need to provide a subset of the full Catalog/Universe to your users
 2. Your DC/OS cluster is air gapped from the Internet, requiring all package assets to be available on the cluster itself
 
 You'll most likely have a bootstrap node or jump host to your DC/OS cluster. If that also has Internet access, then this is the best place to host this tool, as it can pull down the packages and the final build assets may be close to the target DC/OS cluster, which'll cut down on the time it'll take to transfer them over.
 
+Once the assets are built and if your network allows, you could `curl` them directly from your masters using the DC/OS cli.
+
+`$ dcos node ssh --master-proxy --leader "curl -o /tmp/local-universe.tgz http://<bootstrap node>:5001/local-universe.tar.gz"`
+
 If that option is not possible, then it can be run on any machine like your laptop/desktop with Docker running, which is supported on all major OSes.
 
-**Prerequisites** 
+### Prerequisites
 
 - Git
 - Docker daemon active
@@ -78,7 +82,7 @@ Typing the first few characters of a package name returns a subset of the entire
 
 ## Publishing
 
-**Requires** 
+### Requires
 
 - Ansible installed locally
 - Direct SSH access to DC/OS nodes
