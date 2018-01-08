@@ -1,5 +1,3 @@
-# mesosphere-dcos-universe-builder
-
 ## Overview
 
 A Docker based build environment and UI for building a [DC/OS local universe](https://docs.mesosphere.com/1.10/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-selected-packages).
@@ -7,6 +5,8 @@ A Docker based build environment and UI for building a [DC/OS local universe](ht
 Designed to be run (for now) outside of DC/OS itself. Recommended to run either on your laptop/desktop, or on a [Bootstrap node](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/#bootstrap-node).
 
 Please note: This does not utilise Docker in Docker (dind), it uses sibling containers and connects to your host's Docker daemon using the sock file. If you have an existing Docker container running and registered as `/registry`, it will remove it. If you intend to run this on a jump host or bootstrap server with an existing Docker registry, please check its name.
+
+This is preview quality, it's only been tested using Docker and Chrome on OSX, so if you hit an issue, please raise an issue.
 
 This is a [DC/OS Community](https://dcos.io/community/) project and is not supported or warrantied by Mesosphere.
 
@@ -101,3 +101,4 @@ This automates the [steps documented here](https://docs.mesosphere.com/1.10/admi
 3. A css loader/spinner rather than relying on the browser waiting notification in the status bar
 4. Test running on DC/OS itself as a Marathon task
 5. Replace run.sh with Python 
+6. Testing on other browsers, OSes
