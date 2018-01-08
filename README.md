@@ -2,23 +2,32 @@
 
 ## Overview
 
-This is a [DC/OS Community](https://dcos.io/community/) project and is not supported or warrantied by Mesosphere.
-
 A Docker based build environment and UI for building a [DC/OS local universe](https://docs.mesosphere.com/1.10/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-selected-packages).
 
-Designed to be run (for now) outside of DC/OS.
+Designed to be run (for now) outside of DC/OS itself. Recommended to run either on your laptop/desktop, or on a [Bootstrap node](https://docs.mesosphere.com/1.10/installing/oss/custom/system-requirements/#bootstrap-node).
 
-Please note: This does not utilise Docker in Docker (dind), it connects to your host's Docker daemon using the sock file. If you have an existing Docker container running or registered called `registry`, it will remove it. If you intend to run this on a jump host or bootstrap server with an existing Docker registry, please check its name.
+Please note: This does not utilise Docker in Docker (dind), it uses sibling containers and connects to your host's Docker daemon using the sock file. If you have an existing Docker container running and registered as `/registry`, it will remove it. If you intend to run this on a jump host or bootstrap server with an existing Docker registry, please check its name.
+
+This is a [DC/OS Community](https://dcos.io/community/) project and is not supported or warrantied by Mesosphere.
 
 ![screenshot](https://raw.githubusercontent.com/aggress/mesosphere-dcos-universe-builder/master/web/static/images/screenshot.png)
 
 
 ## Usage
 
+**Use Cases**
+
+1. You need to provide a subset of the full Catalog/Universe to your users
+2. Your DC/OS cluster is air gapped from the Internet, requiring all package assets to be available on the cluster itself
+
+You'll most likely have a bootstrap node or jump host to your DC/OS cluster. If that also has Internet access, then this is the best place to host this tool, as it can pull down the packages and the final build assets may be close to the target DC/OS cluster, which'll cut down on the time it'll take to transfer them over.
+
+If that option is not possible, then it can be run on any machine like your laptop/desktop with Docker running, which is supported on all major OSes.
+
 **Prerequisites** 
 
 - Git
-- Docker running locally
+- Docker daemon active
 
 1. `$ git clone git@github.com:aggress/mesosphere-dcos-universe-builder.git`
 1. `$ cd mesosphere-dcos-universe-builder`
