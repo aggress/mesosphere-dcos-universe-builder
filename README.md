@@ -32,7 +32,7 @@ If that option is not possible, then it can be run on any machine like your lapt
 1. `$ git clone git@github.com:aggress/mesosphere-dcos-universe-builder.git`
 1. `$ cd mesosphere-dcos-universe-builder`
 1. Run the Docker container `$ scripts/run.sh`
-1. Open `http://127.0.0.1:5001` in your web browser
+1. Open `http://127.0.0.1:5001` in your web browser. scripts/run.sh can be amended to change the IP the UI is available on, if running on an external server, otherwise you can SSH port forward to access it
 1. Select the DC/OS version and packages you wish to add and build
 1. Click on `BUILD`, note build time will vary depending on the number of packages
 1. Download the presented `local-universe.tgz` which could be between 500MB-3GB, plus the systemctl service files
@@ -65,7 +65,7 @@ Typing the first few characters of a package name returns a subset of the entire
 1. run.sh helper script executes
 2. Git clones the [DC/OS universe](https://github.com/mesosphere/universe)
 3. make base
-3. From the universe repository make a list of every package
+3. builder-list.py traverses the universe repository to make a list of every package
 4. Inject it into the selectize drop down box
 5. Flask runs `builder-web.py`
 6. index.html rendered from base.html template and published on `127.0.0.1:5001`
