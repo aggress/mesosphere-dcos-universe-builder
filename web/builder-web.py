@@ -1,5 +1,5 @@
 from __future__ import print_function
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import subprocess
 import sys
 import os
@@ -18,11 +18,10 @@ def root():
 def result():
     packages = ""
     version = ""
-    result = request.form
-    for i in result.getlist('package'):
+    for i in request.args.get('packages'):
         packages = packages + i + ','
     packages = packages[:-1]
-    for i in result.getlist('version'):
+    for i in request.args.get('version'):
         version = version + i
     print(packages, file=sys.stderr)
     print(version, file=sys.stderr)
@@ -31,7 +30,7 @@ def result():
     print(os.environ["PACKAGES"], file=sys.stderr)
     print(os.environ["DCOS_VER"], file=sys.stderr)
     subprocess.check_call('/universe-builder/bin/run.sh make-universe', shell=True)
-    return render_template("result.html", result=result)
+    return jsonify(local_url="/local-universe.tar.gz")
 
 
 @app.route('/shutdown', methods=['POST'])

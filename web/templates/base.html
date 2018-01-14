@@ -16,6 +16,19 @@
 		<!--[if IE 8]><script src="js/es5.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/selectize.min.js"></script>
+		<script type=text/javascript>
+			$(function() {
+			  $('a#button').bind('click', function() {
+				$.getJSON('/background_process', {
+				  version: $('select[name="version"]').val(),
+				  packages: $('select[name="package"]').val()
+				}, function(data) {
+				  $("#local_url").text(data.result);
+				});
+				return false;
+			  });
+			});
+		</script>
 	</head>
     <body>
 
@@ -36,6 +49,7 @@
 				<p>This is a <a href="https://dcos.io/community/">DC/OS Community</a> project and is not supported or warrantied by Mesosphere.</p>
                 <p>Please refer to <a href="https://github.com/aggress/mesosphere-dcos-universe-builder">https://github.com/aggress/mesosphere-dcos-universe-builder</a> for further information.</p>
 				<br>
+				<br><a href="?" id=result>Download the local-universe.tgz</a>
 
 				<div class="control-group">
 					<label for="select-version">DC/OS Version</label>
@@ -62,7 +76,7 @@
 
 				<div class="control-group">
 					<label for="select-package">Packages</label>
-					<select id="select-package" name="package" multiple class="demo-default" required style="width:75%" placeholder="Select a package...">
+					<select id="select-package" name="package" multiple class="demo-default" required style="width:800px" placeholder="Select a package...">
 						{% block content %}{% endblock %}
 					</select>
 				</div>
